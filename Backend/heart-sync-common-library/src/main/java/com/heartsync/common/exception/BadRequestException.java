@@ -7,4 +7,8 @@ public class BadRequestException extends BaseException {
         super(ErrorCode.BAD_REQUEST, message);
     }
 
+    public BadRequestException(ErrorCode errorCode) {
+        super(errorCode);
+    }
+
 }

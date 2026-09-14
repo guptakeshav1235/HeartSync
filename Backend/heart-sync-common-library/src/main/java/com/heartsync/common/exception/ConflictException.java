@@ -7,4 +7,8 @@ public class ConflictException extends BaseException {
         super(ErrorCode.CONFLICT, message);
     }
 
+    public ConflictException(ErrorCode errorCode){
+        super(errorCode);
+    }
+
 }
