@@ -7,4 +7,8 @@ public class ForbiddenException extends BaseException {
         super(ErrorCode.FORBIDDEN, message);
     }
 
+    public ForbiddenException(ErrorCode errorCode) {
+        super(errorCode);
+    }
+
 }

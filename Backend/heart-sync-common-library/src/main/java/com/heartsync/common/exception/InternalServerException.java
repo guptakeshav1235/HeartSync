@@ -7,4 +7,8 @@ public class InternalServerException extends BaseException {
         super(ErrorCode.INTERNAL_SERVER_ERROR, message);
     }
 
+    public InternalServerException(ErrorCode errorCode) {
+        super(errorCode);
+    }
+
 }
