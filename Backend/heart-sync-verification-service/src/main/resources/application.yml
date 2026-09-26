@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: heart-sync-veification-service
+
+  datasource:
+     url: ${DB_URL}
+     username: ${DB_USERNAME}
+     password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  verification:
+    face:
+      detector-model: ./models/face/face_detection_yunet_2023mar.onnx
+      recognition-model: ./models/face/face_recognition_sface_2021dec.onnx
+
+      detection-threshold: 0.90
+      nms-threshold: 0.30
+      top-k: 5000
+
+      cosine-threshold: 0.363
+
+      model-version: sface-2021dec    
+
+    liveness:
+      model-v2: ./models/liveness/2.7_80x80_MiniFASNetV2.onnx
+      model-v1se: ./models/liveness/4_0_0_80x80_MiniFASNetV1SE.onnx
+
+      real-threshold: 0.70
+
+      min-frames: 3
+      max-frames: 6
+
+      required-pass-ratio: 0.67
+
+      model-version: minifasnet-v1se-v2 
+    
+    storage:
+      root: ./verification-storage
+
+server:
+  port: 8082  
